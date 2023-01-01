@@ -28,16 +28,31 @@ jobs:
         uses: actions/checkout@master
       - name: Create Release
         id: create_release
-        uses: actions/create-release@latest
+        uses:
+          actions/create-release@latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
           body: |
-            Changes in this Release
-            - First Change
-            - Second Change
+            **Full Changelog**:
+            > ${{ github.event.commits[0].message }}
+            - See [full diff](${{ github.event.compare }})
+            - See [all commits](${{ github.event.commits_url }})
+            - See [all contributors](${{ github.event.contributors_url }})
+            - See [all issues](${{ github.event.issues_url }})
+            - See [all pull requests](${{ github.event.pull_requests_url }})
+            - See [all milestones](${{ github.event.milestones_url }})
+            - See [all labels](${{ github.event.labels_url }})
+            - See [all projects](${{ github.event.projects_url }})
+            - See [all releases](${{ github.event.releases_url }})
+            - See [all deployments](${{ github.event.deployments_url }})
+            - See [all statuses](${{ github.event.statuses_url }})
+            - See [all comments](${{ github.event.comments_url }})
+            - See [all commits](${{ github.event.commits_url }})
+            - See [all events](${{ github.event.events_url }})
+            - See [all notifications](${{ github.event.notifications_url }})
           draft: false
           prerelease: false
 
