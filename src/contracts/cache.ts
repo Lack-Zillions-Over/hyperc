@@ -1,5 +1,5 @@
 import { createHash } from 'crypto';
-import { compressToBase64, decompressFromBase64 } from 'lz-string';
+import { compress, decompress } from 'lzutf8';
 import Redis from "ioredis";
 
 abstract class CacheContract {
@@ -16,11 +16,11 @@ abstract class CacheContract {
   };
 
   protected compress<T>(value: T): string {
-    return compressToBase64(JSON.stringify(value));
+    return compress(JSON.stringify(value), { outputEncoding: 'Base64' });
   }
 
   protected decompress<T>(value: string): T {
-    return JSON.parse(decompressFromBase64(value));
+    return JSON.parse(decompress(value, { inputEncoding: 'Base64', outputEncoding: 'String' }));
   }
 
   public abstract create(identifier: string | number, ttl: number): Promise<boolean>;
