@@ -1,0 +1,45 @@
+version: '3.9'
+
+services:
+  redis:
+    container_name: redis-preview
+    image: redis:latest
+    restart: always
+    networks:
+      project_development:
+        aliases:
+          - redis
+    ports:
+      - ${REDIS_PORT}:${REDIS_PORT}
+    volumes:
+      - project_development:/data
+  app:
+    container_name: app-preview
+    restart: always
+    links:
+      - redis
+    depends_on:
+      - redis
+    command: yarn start
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    networks:
+      project_development:
+        aliases:
+          - backend
+    ports:
+      - ${PORT}:${PORT}
+      - 9229:9229 # Debug port
+    volumes:
+      - .:/app
+      - /node_modules
+    env_file:
+      - ./.env
+
+networks:
+  project_development:
+
+volumes:
+  project_development:

@@ -1,0 +1,38 @@
+name: Node.js Release
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: volta-cli/action@v3
+    - run: yarn install
+    - run: yarn lint
+    - run: yarn type-check
+    - run: yarn test:ci --passWithNoTests
+    - run: yarn build:release
+      env:
+        CI: true
+
+  publish-gpr:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: https://registry.npmjs.org
+      - run: yarn install
+      - run: yarn build:release
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
