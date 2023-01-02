@@ -1,6 +1,6 @@
 {
   "name": "lzo-hyperc",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Caching in Node.js to optimize app performance",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
