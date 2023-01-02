@@ -27,7 +27,7 @@ class Cache extends CacheContract {
     try {
       await this.client.set(this._nameExpire(identifier), String(Date.now() + ttl));
       return true;
-    } catch(e) {
+    } catch (e) {
       return false;
     }
   }
