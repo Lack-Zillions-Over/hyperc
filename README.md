@@ -12,7 +12,7 @@
 ## Installation
 
 ```bash
-npm install lzo-hyperc
+npm install lzo-hyperc OR yarn add lzo-hyperc
 ```
 
 ## Configuration
