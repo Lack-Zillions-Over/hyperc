@@ -38,9 +38,9 @@
   },
   "scripts": {
     "commit": "cz",
-    "prerelease": "standard-version --prerelease alpha && yarn postrelease",
-    "release": "standard-version && yarn postrelease",
-    "postrelease": "git push --follow-tags origin main",
+    "push:release": "git push --follow-tags origin main",
+    "post:release": "standard-version && yarn push:release",
+    "post:prerelease": "standard-version --prerelease alpha && yarn push:release",
     "audit-fix": "npx yarn-audit-fix",
     "update": "npx yarn upgrade-interactive --latest",
     "clean": "rimraf coverage build tmp",
