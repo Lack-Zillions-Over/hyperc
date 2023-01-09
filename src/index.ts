@@ -1,1 +1,1 @@
-export { default as Hyperc } from './constants/cache';
+export { default as Hyperc } from './constants';
