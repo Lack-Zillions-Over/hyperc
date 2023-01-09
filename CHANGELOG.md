@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.7](https://github.com/Lack-Zillions-Over/hyperc/compare/v1.1.6...v1.1.7) (2023-01-09)
+
+
+### Build System
+
+* **packages:** update Packages ([7696fb4](https://github.com/Lack-Zillions-Over/hyperc/commit/7696fb4e62771836ef9bd26728d89c48295e2cf5))
+
 ### [1.1.6](https://github.com/Lack-Zillions-Over/hyperc/compare/v1.1.5...v1.1.6) (2023-01-02)
 
 
