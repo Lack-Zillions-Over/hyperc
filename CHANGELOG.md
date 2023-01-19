@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.8](https://github.com/Lack-Zillions-Over/hyperc/compare/v1.1.7...v1.1.8) (2023-01-19)
+
+
+### Bug Fixes
+
+* Add tsx and tsup ([130f563](https://github.com/Lack-Zillions-Over/hyperc/commit/130f5637706ca5b9cabbdeddd94208fcf1a127d8))
+
+
+### CI
+
+* **setup:** added script for create .env ([d82fa58](https://github.com/Lack-Zillions-Over/hyperc/commit/d82fa58bb751311532cacbadb0a538811046f578))
+
+
+### Build System
+
+* **update packages:** up new versions ([07b339b](https://github.com/Lack-Zillions-Over/hyperc/commit/07b339bc40746bdf60e7e32203065501711d19ca))
+
 ### [1.1.7](https://github.com/Lack-Zillions-Over/hyperc/compare/v1.1.6...v1.1.7) (2023-01-09)
 
 
